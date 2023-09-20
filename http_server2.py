@@ -91,11 +91,11 @@ def motor_coordinate(data):
             op_point_regiony = []
             op_point_regionz = []
             for data_point in data_point_region:
-                op_pointx = {'x': data_point['x'] - motor_coord['x'] + bias['x']}
+                op_pointx = data_point['x'] - motor_coord['x'] + bias['x']
                 op_point_regionx.append(op_pointx)
-                op_pointy = {'y': data_point['y'] - motor_coord['y'] + bias['y']}
+                op_pointy = data_point['y'] - motor_coord['y'] + bias['y']
                 op_point_regiony.append(op_pointy)
-                op_pointz = {'z': data_point['z'] - motor_coord['z'] + bias['z']}
+                op_pointz = data_point['z'] - motor_coord['z'] + bias['z']
                 op_point_regionz.append(op_pointz)
             motor_obj['pointRegionX'] = op_point_regionx
             motor_obj['pointRegionY'] = op_point_regiony
@@ -104,7 +104,7 @@ def motor_coordinate(data):
         motor_objs.append(motor_obj)
 
     return {"code": 200, "message": "操作成功",
-            "data": {"dataSize": data['dataSize'], "dataList": motor_objs}}
+            "dataSize": data['dataSize'], "dataList": motor_objs}
 
 
 class Counter(resource.Resource):
